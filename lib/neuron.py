@@ -29,15 +29,3 @@ class neuron:
 
         if activation_type == 'sigmoid':
             return activation.sigmoid(weighted_sum[0][0])
-
-
-
-a = np.array([[1, 1, 1]])
-b = np.array([[-2], [-2], [-2]])
-c = 9
-
-neuron1 = neuron(a, b, c)
-
-neuron_output = neuron1.activate('relu')
-print(np.shape(neuron_output))
-print(neuron_output)

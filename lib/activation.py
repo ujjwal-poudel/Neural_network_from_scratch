@@ -2,21 +2,29 @@
 This module will contain the activation functions
 """
 import numpy as np
-# Rectified Linear Unit (ReLU)
+from .layer import Layer
 
-def relu(x: float) -> float:
-    try:
-        if x > 0:
-            return x
-        else:
-            return 0
-    except Exception as error:
-        print("Looks like you're tyring to enter a string\n")
-        print(error)
+# It looks like I need to inherit the layer abstraction class to make it modular
 
-def sigmoid(x: float) -> float:
-    return 1 / (1 + (np.exp(-x)))
+class ReLU(Layer):
 
-def softmax():
-    # I'll create it later if I need it
-    pass
+    def __init__(self):
+        super().__init__()
+        print("Activation Layer with ReLU created")
+
+    def forward_prop(self, input):
+        # Updating the input data
+        self.input = input
+        return np.where(input > 0, input, 0)
+    
+    def backward_prop(self):
+        pass
+
+class Sigmoid(Layer):
+    def __init__(self):
+        super().__init__()
+        print("Activation Layer with Sigmoid Created")
+
+    def forward_prop(self, input):
+        self.input = input
+        return 1 / (1 + np.exp(-input))

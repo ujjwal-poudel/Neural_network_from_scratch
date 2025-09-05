@@ -1,7 +1,3 @@
-import neuron
-import numpy as np
-from numpy.typing import NDArray
-
 """
 I will create a sequential
 """
@@ -15,4 +11,3 @@ class Layer:
 
     def backward_prop(self):
         raise NotImplementedError
-            
